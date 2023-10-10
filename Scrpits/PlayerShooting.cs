@@ -8,6 +8,7 @@ public class PlayerShooting : MonoBehaviour
     private Vector2 mousePos;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firingPoint;
+    [SerializeField] Camera plrCamera;
     [Range(0.1f, 2f)]
     [SerializeField] private float firingSpeed = 0.5f;
 

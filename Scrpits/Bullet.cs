@@ -28,13 +28,17 @@ public class Bullet : MonoBehaviour
     {
         bullet.velocity = transform.up * speed;
     }
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
+        //Debug.Log($"{collision.transform.tag} - {collision.transform.name}");
         if (collision.gameObject.tag == "Enemy")
         {
-            //ToDo Tell the enemy object to take damage and how much to take
-            Destroy(gameObject);
+            Enemy eScript = collision.gameObject.GetComponent<Enemy>();
+            if (eScript != null)
+            {
+                eScript.takeDamage(1);
+                Destroy(gameObject);
+            }
         }
     }
 }
