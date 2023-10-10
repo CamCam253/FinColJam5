@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed = 2f;
     private Rigidbody2D player;
     private Vector2 movementDirection;
     // Start is called before the first frame update
@@ -21,6 +20,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        player.velocity = movementDirection * movementSpeed;
+        player.velocity = movementDirection * PlayerManager.moveSpeed;
     }
 }
