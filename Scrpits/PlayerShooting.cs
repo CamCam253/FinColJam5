@@ -10,7 +10,6 @@ public class PlayerShooting : MonoBehaviour
     [SerializeField] private Transform firingPoint;
     [SerializeField] Camera plrCamera;
     [Range(0.1f, 2f)]
-    [SerializeField] private float firingSpeed = 0.5f;
 
     private float fireTimer;
 
@@ -30,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && fireTimer <= 0)
         {
             Shoot();
-            fireTimer = firingSpeed;
+            fireTimer = PlayerManager.firingSpeed;
         }
         else
         {

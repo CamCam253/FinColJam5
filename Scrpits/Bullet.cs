@@ -36,7 +36,7 @@ public class Bullet : MonoBehaviour
             Enemy eScript = collision.gameObject.GetComponent<Enemy>();
             if (eScript != null)
             {
-                eScript.takeDamage(1);
+                eScript.takeDamage(PlayerManager.gunDamage);
                 Destroy(gameObject);
             }
         }
