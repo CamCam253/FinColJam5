@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     public Transform target;
     public float speed = 3f;
     int health = 1;
+
+    [SerializeField] public GameObject itemDrop;
+
     void Start()
     {
         GameSystem.enemyAmount++;
@@ -33,9 +36,15 @@ public class Enemy : MonoBehaviour
     {
         GameObject.Destroy(gameObject);
         GameSystem.enemyAmount--;
+        DropItem(target);
     }
     public void takeDamage(int amount)
     {
         health = health - amount;
+    }
+
+    private void DropItem()
+    {
+        Instantiate(itemDrop, transform.position, Quaternion.identity);
     }
 }
