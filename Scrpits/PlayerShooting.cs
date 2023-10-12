@@ -13,6 +13,9 @@ public class PlayerShooting : MonoBehaviour
 
     private float fireTimer;
 
+    public Animator animator;
+    [SerializeField] float animationTimer = 0.3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,10 +33,15 @@ public class PlayerShooting : MonoBehaviour
         {
             Shoot();
             fireTimer = PlayerManager.firingSpeed;
+            animator.SetBool("Shooting", true);
         }
         else
         {
             fireTimer -= Time.deltaTime;
+            if (fireTimer < PlayerManager.firingSpeed - animationTimer)
+            {
+                animator.SetBool("Shooting", false);
+            }
         }
     }
 

@@ -6,6 +6,8 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D player;
     private Vector2 movementDirection;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +23,13 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         player.velocity = movementDirection * PlayerManager.moveSpeed;
+        if (player.velocity != Vector2.zero)
+        {
+            animator.SetFloat("PlayerSpeed", movementSpeed);
+        }
+        else
+        {
+            animator.SetFloat("PlayerSpeed", 0);
+        }
     }
 }
